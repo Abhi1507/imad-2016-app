@@ -13,12 +13,9 @@ app.get('/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/images/img1.gif', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui','images', 'img1.gif'));
-});
-
-app.get('/images/img2.gif', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui','images', 'img2.gif'));
+app.get('/images/:img', function (req, res) {
+    var data = req.params.img;
+  res.sendFile(path.join(__dirname, 'ui','images', 'data'));
 });
 
 app.get('/ui/madi.png', function (req, res) {
