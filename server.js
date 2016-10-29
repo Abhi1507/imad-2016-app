@@ -13,14 +13,12 @@ app.get('/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/images/:img', function (req, res) {
-    var data = req.params.img;
-  res.sendFile(path.join(__dirname, 'ui','images', data));
+app.get('/:folder/:file', function (req, res) {
+    var file = req.params.file;
+    var folder = req.params.folder;
+  res.sendFile(path.join(__dirname, 'ui',folder, file));
 });
 
-app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
-});
 
 var port = 8080; 
 app.listen(8080, function () {
